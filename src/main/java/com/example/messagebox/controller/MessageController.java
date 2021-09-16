@@ -44,10 +44,10 @@ public class MessageController {
         return message;
     }
 
-    @PutMapping("{id}")
+    @PutMapping("/{id}")
     public Map<String, String> editMessage(@PathVariable String id,
                                            @RequestBody Map<String, String> message) {
-        Map<String, String> messageForEdit = getByIdFromMessageList(message.get("id"));
+        Map<String, String> messageForEdit = getByIdFromMessageList(id);
         messageForEdit.putAll(message);
         messageForEdit.put("id", id);
         return messageForEdit;
